@@ -1,0 +1,19 @@
+<div class="card text-bg-secondary mb-3" style="max-width: auto;">
+  <div class="card-body">
+    <h5 class="card-title">Pedido que se va a realizar</h5>
+    <p class="card-text">Selecione las pizzas que quiere encargar, indique la cantidad</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    @for (pizza of (orderPizza$ | async); track pizza.id) {
+    <li class="list-group-item"> Pizza: <strong>{{ pizza.name }}</strong> , Cantidad: <strong> {{ pizza.quantity }}
+      </strong> </li>
+    }@empty {
+    <li class="list-group-item"> Orden vacia </li>
+    }
+
+  </ul>
+  <div class="card-body">
+    <h5 class="card-title"> Total de: {{ priceTotal$ | async | currency }} </h5>
+    <button class="btn btn-light">Finalizar pedido</button>
+  </div>
+</div>

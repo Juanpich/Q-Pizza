@@ -1,0 +1,22 @@
+<div class="row p-2">
+    @for (pizza of pizzas$ | async; track pizza.id) {
+    <div class="card col-3 m-auto" style="width: 18rem;">
+        <img [src]="pizza.image" class="card-img-top " [alt]="pizza.name" style="height:10rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ pizza.name }}</h5>
+            <p class="card-text">{{ pizza.description }}</p>
+            <p class="card-text" [class.text-success]="pizza.offer" [class.border]="pizza.offer"
+                [class.border-success]="pizza.offer"><strong>Precio:</strong> {{ pizza.price | currency }} </p>
+            <div class="card-text">
+                <app-input-number [(quantity)]="pizza.quantity"></app-input-number>
+            </div>
+            <button class="btn btn-primary" (click)="addToOrder(pizza)">Agregar al pedido</button>
+        </div>
+    </div>
+
+
+    }@empty {
+    <p class="text-warning-emphasis">No tenemos pizzas disponibles en este momento</p>
+    }
+    
+</div>

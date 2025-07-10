@@ -1,0 +1,27 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-3 border-bottom"> <a [routerLink]="['/']"
+    class="d-flex align-items-center mb-0 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
+      class="bi me-2" width="40" height="32" aria-hidden="true">
+    </svg> <span class="fs-4">{{ title }}</span> </a>
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a [routerLink]="['/pizzas']" class="nav-link">Home</a></li>
+    <li class="nav-item"><a [routerLink]="['/order']" class="nav-link">Pedido</a></li>
+    <li class="nav-item"><a [routerLink]="['/about']" class="nav-link">About</a></li>
+    <li class="nav-item"><a [routerLink]="['/createPizza']" class="nav-link">Cargar Pizza</a></li>
+  </ul>
+</header>
+
+<div class="container-fluid text-center ">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+
+
+
+<footer class="py-3 my-4 ">
+  <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+</footer>

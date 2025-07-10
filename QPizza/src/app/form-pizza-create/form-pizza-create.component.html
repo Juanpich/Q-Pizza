@@ -1,0 +1,55 @@
+<div class="container border border-primary py-2">
+    <form [formGroup]="createForm " (submit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Nombre</label>
+            <input type="text" class="form-control form-control-lg text-center" placeholder="Ingrese el nombre"
+                formControlName="name">            
+            @if(createForm.get('name')?.hasError("required")){
+            <p class="text-danger">El nombre es obligatorio</p>
+            }@else{
+                @if(createForm.get('name')?.hasError("minlength")){
+                    <p class="text-warning">El nombre debe tener como minimo 4 caracteres</p>
+                }
+            }
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">Descripción</label>
+            <input type="text" class="form-control text-center" placeholder="Ingrese una descripción"
+                formControlName="description">
+             @if(createForm.get('description')?.hasError("required")){
+                <p class="text-danger">La descripción es obligatoria</p>
+            }    
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">Precio</label>
+            <input type="number" class="form-control text-center" placeholder="Ingrese el precio"
+                formControlName="price">
+             @if(createForm.get('price')?.hasError("required")){
+                <p class="text-danger">El precio es obligatorio</p>
+            }
+        </div>
+        <div class="mb-3 form-check d-flex justify-content-center ">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="offer">
+            <label class="form-check-label fw-bold px-2" [class.text-success]="createForm.get('offer')?.value"
+                [class.text-danger]="!createForm.get('offer')?.value" for="exampleCheck1">Oferta</label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">URL de la imagen</label>
+            <input type="text" class="form-control text-center" placeholder="https://..." formControlName="image">
+        </div>
+
+        <button [disabled]="!createForm.valid" type="submit" class="btn btn-primary">Cargar</button>
+    </form>
+</div>
+<div class="mt-2">
+    @if(result !== null){
+        @if(result){
+            <h5 class="text-success">La pizza se creo con exito</h5>
+        }@else {
+            <h5 class="text-danger">La pizza no puedo crearce, vuelva a intentar mas tarde</h5>
+        }
+        
+        <button class="btn btn-primary" type="button" [routerLink]="['/pizzas']">Inicio</button>
+      
+    }
+</div>
