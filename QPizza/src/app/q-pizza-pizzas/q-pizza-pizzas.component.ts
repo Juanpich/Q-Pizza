@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-q-pizza-pizzas',
   standalone: false,
   templateUrl: './q-pizza-pizzas.component.html',
-  styleUrl: './q-pizza-about.component.scss'
+  styleUrl: './q-pizza-pizzas.component.scss'
 })
 export class QPizzaPizzasComponent {
 

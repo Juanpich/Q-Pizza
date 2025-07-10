@@ -5,6 +5,7 @@ import { PizzaOrderService } from '../service/pizza-order.service';
 import { PizzaDataService } from '../service/pizza-data.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-pizza-list',
   standalone: false,
@@ -16,8 +17,7 @@ export class PizzaListComponent {
   constructor(private order:PizzaOrderService, private pizzaService:PizzaDataService){
     this.pizzas$ = pizzaService.getAll();
   }
-  
-   addToOrder(pizza:Pizza):void{
+  addToOrder(pizza:Pizza):void{
     this.order.addToOrder(pizza);
     pizza.quantity = 0;
   }

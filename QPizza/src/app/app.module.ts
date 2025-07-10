@@ -12,6 +12,8 @@ import { InputNumberComponent } from './input-number/input-number.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormPizzaCreateComponent } from './form-pizza-create/form-pizza-create.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { FormPizzaCreateComponent } from './form-pizza-create/form-pizza-create.
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
   ],
   providers: [
     provideClientHydration(withEventReplay())
