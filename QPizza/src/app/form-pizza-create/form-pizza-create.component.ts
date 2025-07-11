@@ -21,35 +21,28 @@ export class FormPizzaCreateComponent {
   });
   constructor(private pizzaData: PizzaDataService) { }
   onSubmit() {
-    let p: Pizza = {
-      name: this.createForm.get('name')?.value ?? '',
-      description: this.createForm.get('description')?.value ?? '',
-      price: Number(this.createForm.get('price')?.value),
-      offer: Boolean(this.createForm.get('offer')?.value),
-      image: this.createForm.get('image')?.value ?? '',
-      quantity: 0,
+    if (this.createForm.valid) {
+      let p: Pizza = {
+        name: this.createForm.get('name')?.value ?? '',
+        description: this.createForm.get('description')?.value ?? '',
+        price: Number(this.createForm.get('price')?.value),
+        offer: Boolean(this.createForm.get('offer')?.value),
+        image: this.createForm.get('image')?.value ?? '',
+        quantity: 0,
+      }
+      this.pizzaData.create(p).subscribe({
+        next: () => {
+          this.result = true;
+          this.createForm.reset();
+          setTimeout(() => {
+            this.result = null;
+          }, 7000);
+        },
+        error: (error) => {
+          this.result = false;
+        }
+      });
     }
-    this.pizzaData.create(p).subscribe({
-      next: (response) => {
-        this.result = true;
-        this.createForm.reset();
-      },
-      error: (error) => {
-        this.result = false;
-      }
-    });
-    this.pizzaData.create(p).subscribe({
-      next: () => {
-        this.result = true;
-        this.createForm.reset();
-        setTimeout(() => {
-          this.result = null;
-        }, 7000);
-      },
-      error: (error) => {
-        this.result = false;
-      }
-    });
 
 
   }
