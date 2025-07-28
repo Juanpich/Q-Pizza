@@ -1,4 +1,4 @@
-# Q-Pizza <img src="./QPizza/public/assets/img/logo-q-pizza.ico" alt="Logo Q-Pizza" width="150"/>
+# Q-Pizza <img src="./public/assets/img/logo-q-pizza.ico" alt="Logo Q-Pizza" width="150"/>
 
 ## Descripción del Proyecto
 
